@@ -21,7 +21,7 @@
 3. 你现在应该跳转到了Vercel控制面板(Dashboard)，你应该能看见页面的右上角有一个大大的黑色按钮`新建...`(`Add New...`)，点击它，在弹出的下拉菜单中选择`项目`(`Project`)
 4. `导入`(`Import`)刚刚你Fork出来的仓库
 5. 点`环境变量`(`Environment Variables`)下拉菜单
-6. `键`(`Key`)那里填上`mihoyo_cookies`，`值(会被加密)`(`Value (Will Be Encrypted)`)那里填上你在第一步得到的Cookie，点`添加`(`Add`)
+6. `键`(`Key`)那里填上`mihoyo_cookies`，`值(会被加密)`(`Value (Will Be Encrypted)`)那里填上你在第一步得到的Cookie**(注意末尾不要有换行)**，点`添加`(`Add`)
 7. 点黑色的`部署`(`Deploy`)按钮
 8. 等待Vercel完成部署，如果你看到`祝贺!`(`Congratulations!`)的字样，说明你已经部署成功了(不要关注下面的Not Found)，现在，你应该已经能够自动签到
 ## 3.更新Cookie
@@ -29,7 +29,7 @@
 2. (在一周之后)重新去[这里](https://ys.mihoyo.com/cloud/#/)登录你的账户，并重复`1.获取Cookie`中的步骤，得到一个新的Cookie
 3. 打开[Vercel控制面板](https://vercel.com/dashboard)，点击你创建的签到机项目，点击顶部的`设置`(`Settings`)选项卡，点击侧边栏的`环境变量`(`Environment Variables`)
 4. 拉到最底下，点击`mihoyo_cookies`环境变量右边的三个点，点`编辑`(`Edit`)
-5. 把新的Cookie复制粘贴到`值`(`Value`)输入框里，点右下角的`保存`(`Save`)
+5. 把新的Cookie复制粘贴到`值`(`Value`)输入框里**(注意末尾不要有换行)**，点右下角的`保存`(`Save`)
 6. 点击顶部的`部署`(`Deployments`)选项卡，点击最上面那个部署右边的三个点，在弹出的菜单中选择`重新部署`(`Redeploy`)，点击弹窗中的`重新部署`(`Redeploy`)按钮，等待Vercel完成部署
 7. 你现在已经成功更新了Cookie，记得一周后再来重复这个步骤
 
