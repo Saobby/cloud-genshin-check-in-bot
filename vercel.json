@@ -1,0 +1,11 @@
+{
+    "routes": [{
+        "src": "/.*",
+        "dest": "/api/server.py"
+    }],
+    "regions": ["hkg1"],
+    "crons": [{
+        "path": "/api/check_in",
+        "schedule": "0 2 * * *"
+    }]
+}
