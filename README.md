@@ -12,7 +12,7 @@
 它通常能在浏览器右上角的菜单里找到:  
 ![](https://gp0.saobby.com/i/wQsxsFjMilQXe0P8.PNG)  
 或者你可以直接按`F12`打开开发者工具
-3. 点开发者工具(DevTools)顶部的`网络`(`Network`)选项卡，选择`Fetch/XHR`  
+3. 点开发者工具(DevTools)顶部的`网络`(`Network`)选项卡，选择`Fetch/XHR`，按`F5`刷新页面  
 ![image](https://github.com/Saobby/cloud-genshin-check-in-bot/assets/101960076/3261d43c-d7f4-4fed-8345-1289ae91aa00)  
 4. 在下面找到`webLogin`，点击它，在`请求标头`(`Request Headers`)栏复制你的Cookie  
 ![image](https://github.com/Saobby/cloud-genshin-check-in-bot/assets/101960076/2ccf233b-1038-4b83-868a-84f389a9404a)  
