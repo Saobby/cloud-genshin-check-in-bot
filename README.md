@@ -7,14 +7,16 @@
 
 # 使用方法
 ## 1.获取Cookie
-1. 去[这里](https://ys.mihoyo.com/cloud/#/)登录你的账户
+1. 去[这里](https://ys.mihoyo.com/cloud/#/)登录你的账户，登录完之后**刷新页面**
 2. 打开你的浏览器的开发者工具  
 它通常能在浏览器右上角的菜单里找到:  
 ![](https://gp0.saobby.com/i/wQsxsFjMilQXe0P8.PNG)  
 或者你可以直接按`F12`打开开发者工具
-3. 点开发者工具(DevTools)顶部的`控制台`(`Console`)选项卡
-4. 在那里输入`console.log(document.cookie)`，然后按回车
-5. 现在你应该能看到下面出现了一堆字母，那是你的Cookie，把它保存好备用(你可以把它复制粘贴到一个记事本里)，**Cookie和你的账户密码一样重要，不要把它泄露给任何人**
+3. 点开发者工具(DevTools)顶部的`网络`(`Network`)选项卡，选择`Fetch/XHR`  
+![image](https://github.com/Saobby/cloud-genshin-check-in-bot/assets/101960076/3261d43c-d7f4-4fed-8345-1289ae91aa00)  
+4. 在下面找到`webLogin`，点击它，在`请求标头`(`Request Headers`)栏复制你的Cookie  
+![image](https://github.com/Saobby/cloud-genshin-check-in-bot/assets/101960076/2ccf233b-1038-4b83-868a-84f389a9404a)  
+5. 把复制下来的Cookie保存好备用(你可以把它复制粘贴到一个记事本里)，**Cookie和你的账户密码一样重要，不要把它泄露给任何人**
 ## 2.部署
 1. Fork这个仓库
 2. 去[这里](https://vercel.com/login)登录或注册你的Vercel账户
