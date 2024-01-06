@@ -15,7 +15,7 @@ def get_user_info():
     rep = requests.post(config.weblogin_url, data=json.dumps(data), headers=config.weblogin_headers)
     rep = json.loads(rep.text)
     if rep["retcode"] != 0:
-        raise RuntimeError("API返回了一个错误: {}".format(rep["message"]))
+        raise RuntimeError("webLogin API返回了一个错误: {}".format(rep["message"]))
     return {"combo_token": rep["data"]["combo_token"], "open_id": rep["data"]["open_id"]}
 
 
@@ -30,8 +30,52 @@ def login():
     rep = requests.post(config.login_url, headers=config.login_headers)
     rep = json.loads(rep.text)
     if rep["retcode"] != 0:
-        raise RuntimeError("API返回了一个错误: {}".format(rep["message"]))
+        raise RuntimeError("login API返回了一个错误: {}".format(rep["message"]))
+    
+    
+def get_notifications():
+    rep = requests.get(config.get_notification_url, headers=config.login_headers)
+    rep = json.loads(rep.text)
+    if rep["retcode"] != 0:
+        raise RuntimeError("listNotifications API返回了一个错误: {}".format(rep["message"]))
+    return rep["data"]["list"]
+
+
+def get_wallet():
+    rep = requests.get(config.get_wallet_url, headers=config.login_headers)
+    rep = json.loads(rep.text)
+    if rep["retcode"] != 0:
+        raise RuntimeError("wallet/get API返回了一个错误: {}".format(rep["message"]))
+    return rep["data"]
+
+
+def get_version():
+    rep = requests.get(config.get_version_url, headers=config.get_config_headers)
+    rep = json.loads(rep.text)
+    if rep["retcode"] != 0:
+        raise RuntimeError("cloud_config API返回了一个错误: {}".format(rep["message"]))
+    return rep["data"]["vals"]["web_update_version"]
+
+
+def read_notification(nid):
+    data = {"id": nid}
+    rep = requests.post(config.read_notification_url, data=json.dumps(data), headers=config.login_headers)
+    rep = json.loads(rep.text)
+    if rep["retcode"] != 0:
+        raise RuntimeError("ackNotification API返回了一个错误: {}".format(rep["message"]))
 
 
 if __name__ == "__main__":
-    pass
+    from pprint import pprint
+    app_version = get_version()
+    user_info = get_user_info()
+    combo_token = user_info["combo_token"]
+    open_id = user_info["open_id"]
+    config.login_headers["X-Rpc-App_version"] = app_version
+    config.login_headers["X-Rpc-Combo_token"] = get_combo_token(combo_token, open_id)
+    pprint(config.login_headers)
+    login()
+    pprint(get_wallet())
+    notifications = get_notifications()
+    for notice in notifications:
+        read_notification(notice["id"])

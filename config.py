@@ -1,7 +1,6 @@
 import os
 
 cookies = os.getenv("mihoyo_cookies")
-
 cookies_ = {i.split("=")[0]: i.split("=")[1] for i in cookies.split("; ")}
 device_fp = cookies_["DEVICEFP"]
 device_id = cookies_["_MHYUUID"]
@@ -24,6 +23,9 @@ weblogin_headers = {"Accept": "application/json, text/plain, */*", "Accept-Encod
                     "X-Rpc-Game_biz": game_biz, "X-Rpc-Language": "zh-cn", "X-Rpc-Mdk_version": "2.19.5"}
 
 login_url = "https://api-cloudgame.mihoyo.com/hk4e_cg_cn/gamer/api/login"
+get_notification_url = "https://api-cloudgame.mihoyo.com/hk4e_cg_cn/gamer/api/listNotifications?status=NotificationStatusUnread&type=NotificationTypePopup&is_sort=true"
+get_wallet_url = "https://api-cloudgame.mihoyo.com/hk4e_cg_cn/wallet/wallet/get"
+read_notification_url = "https://api-cloudgame.mihoyo.com/hk4e_cg_cn/gamer/api/ackNotification"
 login_headers = {"Accept": "application/json, text/plain, */*", "Accept-Encoding": "gzip, deflate, br",
                  "Accept-Language": "zh-CN,zh;q=0.9", "Connection": "keep-alive", "Cookie": cookies,
                  "Host": "api-cloudgame.mihoyo.com", "Origin": "https://ys.mihoyo.com",
@@ -33,11 +35,22 @@ login_headers = {"Accept": "application/json, text/plain, */*", "Accept-Encoding
                  "Sec-Fetch-Mode": "cors", "Sec-Fetch-Site": "same-site",
                  "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
                                "Chrome/120.0.0.0 Safari/537.36",
-                 "X-Rpc-App_id": "", "X-Rpc-App_version": "4.3.0", "X-Rpc-Cg_game_biz": game_biz,
+                 "X-Rpc-App_id": "", "X-Rpc-Cg_game_biz": game_biz,
                  "X-Rpc-Channel": "mihoyo", "X-Rpc-Client_type": "16", "X-Rpc-Cps": "pc_miyoushe_web",
                  "X-Rpc-Device_id": device_id, "X-Rpc-Device_model": "Unknown", "X-Rpc-Device_name": "Unknown",
                  "X-Rpc-Language": "zh-cn", "X-Rpc-Op_biz": "clgm_cn", "X-Rpc-Sys_version": "Windows 10",
                  "X-Rpc-Vendor_id": "2"}
+
+get_version_url = "https://sdk-static.mihoyo.com/combo/box/api/config/cloud_ys/cloud_config?cloud_config=config"
+get_config_headers = {"Accept": "application/json, text/plain, */*", "Accept-Encoding": "gzip, deflate, br",
+                      "Accept-Language": "zh-CN,zh;q=0.9", "Origin": "https://ys.mihoyo.com",
+                      "Referer": "https://ys.mihoyo.com/",
+                      "Sec-Ch-Ua": '"Not_A Brand";v="8", "Chromium";v="120", "Google Chrome";v="120"',
+                      "Sec-Ch-Ua-Mobile": "?0", "Sec-Ch-Ua-Platform": '"Windows"', "Sec-Fetch-Dest": "empty",
+                      "Sec-Fetch-Mode": "cors", "Sec-Fetch-Site": "same-site",
+                      "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
+                                    "Chrome/120.0.0.0 Safari/537.36"}
+
 
 if __name__ == "__main__":
     print(cookies_)
