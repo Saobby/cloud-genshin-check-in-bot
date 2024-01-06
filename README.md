@@ -18,7 +18,7 @@
 ![image](https://github.com/Saobby/cloud-genshin-check-in-bot/assets/101960076/2ccf233b-1038-4b83-868a-84f389a9404a)  
 5. 把复制下来的Cookie保存好备用(你可以把它复制粘贴到一个记事本里)，**Cookie和你的账户密码一样重要，不要把它泄露给任何人**
 ## 2.部署
-1. Fork这个仓库
+1. [Fork](https://github.com/Saobby/cloud-genshin-check-in-bot/fork)这个仓库
 2. 去[这里](https://vercel.com/login)登录或注册你的Vercel账户
 3. 你现在应该跳转到了Vercel控制面板(Dashboard)，你应该能看见页面的右上角有一个大大的黑色按钮`新建...`(`Add New...`)，点击它，在弹出的下拉菜单中选择`项目`(`Project`)
 4. `导入`(`Import`)刚刚你Fork出来的仓库
