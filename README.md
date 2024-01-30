@@ -1,5 +1,6 @@
 # cloud-genshin-check-in-bot
- 云原神自动签到机,可部署在vercel
+ 云原神自动签到机,可部署在vercel  
+ 星穹铁道看[这里](https://github.com/Saobby/cloudHsrAutoCheckIn/tree/main)
 
 *这个项目目前处于测试阶段*
 
